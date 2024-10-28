@@ -1,0 +1,27 @@
+.user-list-wrapper {
+  @apply p-6;
+  
+  h2 {
+    @apply text-2xl font-bold mb-6;
+  }
+  
+  .user-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+    
+    .user-card {
+      @apply bg-white rounded-lg shadow-md p-4;
+      
+      h3 {
+        @apply text-lg font-semibold mb-2;
+      }
+      
+      p {
+        @apply text-gray-600;
+      }
+      
+      &:hover {
+        @apply shadow-lg transform transition-transform duration-200 scale-105;
+      }
+    }
+  }
+}

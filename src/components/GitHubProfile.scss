@@ -1,0 +1,45 @@
+.github-profile-wrapper {
+  @apply p-4;
+
+  .profile-card {
+    @apply bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto;
+
+    .profile-header {
+      @apply flex items-center gap-6 mb-6;
+
+      .avatar {
+        @apply w-24 h-24 rounded-full ring-2 ring-gray-200;
+      }
+
+      .profile-info {
+        h2 {
+          @apply text-2xl font-bold text-gray-900;
+        }
+
+        .username {
+          @apply text-blue-600 hover:text-blue-800 transition-colors;
+        }
+      }
+    }
+
+    .bio {
+      @apply text-gray-600 mb-6;
+    }
+
+    .stats {
+      @apply grid grid-cols-3 gap-4 border-t pt-6;
+
+      .stat-item {
+        @apply flex flex-col items-center;
+
+        .stat-value {
+          @apply text-2xl font-bold text-gray-900;
+        }
+
+        .stat-label {
+          @apply text-sm text-gray-500;
+        }
+      }
+    }
+  }
+}
