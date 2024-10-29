@@ -37,5 +37,14 @@ export function useGitHubUser(username: string) {
   return useQuery({
     queryKey: QUERY_KEYS.GITHUB_USER(username),
     queryFn: () => fetchGitHubUser(username),
+    onError: (error: Error) => {
+      console.error('GitHub API Error:', {
+        message: error.message,
+        token: import.meta.env.VITE_GITHUB_TOKEN ? 'Present' : 'Missing',
+        endpoint: `${API.GITHUB.BASE_URL}${API.GITHUB.USERS_ENDPOINT}/${username}`,
+      });
+    },
+    retry: false,
+    staleTime: 1000 * 60 * 5,
   });
 }

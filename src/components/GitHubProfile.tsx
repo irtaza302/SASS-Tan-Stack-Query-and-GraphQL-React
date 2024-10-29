@@ -7,7 +7,7 @@ export function GitHubProfile() {
   if (isLoading) {
     return (
       <div className="github-profile-wrapper">
-        <div className="animate-pulse bg-gray-200 rounded-lg p-8">
+        <div className="animate-pulse bg-gray-200 rounded-lg p-8 @apply text-primary;">
           Loading...
         </div>
       </div>
@@ -24,33 +24,42 @@ export function GitHubProfile() {
     );
   }
 
-  // At this point, we know user exists
+  if (!user) {
+    return (
+      <div className="github-profile-wrapper">
+        <div className="bg-yellow-50 text-yellow-600 rounded-lg p-8">
+          No user data available
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="github-profile-wrapper">
       <div className="profile-card">
         <div className="profile-header">
-          <img src={user!.avatar_url} alt={user!.login} className="avatar" />
+          <img src={user.avatar_url} alt={user.login} className="avatar" />
           <div className="profile-info">
-            <h2>{user!.name || user!.login}</h2>
-            <a href={user!.html_url} target="_blank" rel="noopener noreferrer" className="username">
-              @{user!.login}
+            <h2 className="@apply text-primary;">{user.name || user.login}</h2>
+            <a href={user.html_url} target="_blank" rel="noopener noreferrer" className="username">
+              @{user.login}
             </a>
           </div>
         </div>
         
-        {user!.bio && <p className="bio">{user!.bio}</p>}
+        {user.bio && <p className="bio">{user.bio}</p>}
         
         <div className="stats">
           <div className="stat-item">
-            <span className="stat-value">{user!.public_repos}</span>
+            <span className="stat-value">{user.public_repos}</span>
             <span className="stat-label">Repositories</span>
           </div>
           <div className="stat-item">
-            <span className="stat-value">{user!.followers}</span>
+            <span className="stat-value">{user.followers}</span>
             <span className="stat-label">Followers</span>
           </div>
           <div className="stat-item">
-            <span className="stat-value">{user!.following}</span>
+            <span className="stat-value">{user.following}</span>
             <span className="stat-label">Following</span>
           </div>
         </div>

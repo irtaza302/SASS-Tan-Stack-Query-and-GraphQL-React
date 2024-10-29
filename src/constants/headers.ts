@@ -1,8 +1,8 @@
 export const HEADERS = {
-  CONTENT_TYPE: 'Content-Type',
   AUTHORIZATION: 'Authorization',
+  CONTENT_TYPE: 'Content-Type',
   VALUES: {
-    JSON: 'application/json',
     BEARER: (token: string) => `Bearer ${token}`,
+    JSON: 'application/json',
   },
 } as const;

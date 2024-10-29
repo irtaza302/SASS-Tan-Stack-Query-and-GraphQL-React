@@ -7,5 +7,6 @@ export const API = {
   EXAMPLE: {
     BASE_URL: 'https://api.example.com',
     USERS_ENDPOINT: '/users',
+    GRAPHQL_ENDPOINT: '/graphql',
   },
 } as const;
